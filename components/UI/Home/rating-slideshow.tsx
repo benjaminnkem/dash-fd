@@ -22,15 +22,38 @@ const RatingSlideshow = () => {
   return (
     <div className="flex-grow h-full mt-8 overflow-hidden relative flex justify-end" id="rating-cover">
       <div className="flex gap-4 pr-8 -mr-8">
-        <div className="space-y-4">
-          {dummyData.map((data, id) => (
-            <RateCard {...data} key={id} />
-          ))}
+        <div className="space-y-[15px]">
+          <div className="space-y-4 slide-c">
+            <div className="space-y-4">
+              {dummyData.map((data, id) => (
+                <RateCard {...data} key={id} />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-4 slide-c">
+            <div className="space-y-4">
+              {dummyData.map((data, id) => (
+                <RateCard {...data} key={id} />
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="space-y-4">
-          {dummyData.map((data, id) => (
-            <RateCard {...data} key={id} />
-          ))}
+
+        <div className="space-y-[15px]">
+          <div className="space-y-4 slide-c-reverse">
+            <div className="space-y-4">
+              {dummyData.map((data, id) => (
+                <RateCard {...data} key={id} />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-4 slide-c-reverse">
+            <div className="space-y-4">
+              {dummyData.map((data, id) => (
+                <RateCard {...data} key={id} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

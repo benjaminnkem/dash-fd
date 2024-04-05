@@ -51,6 +51,7 @@ a {
   left: 0;
   width: 100%;
   height: 200px;
+  z-index: 2;
   background: linear-gradient(to top, #00000000, white);
 }
 #rating-cover::after {
@@ -60,5 +61,32 @@ a {
   left: 0;
   width: 100%;
   height: 200px;
+  z-index: 2;
   background: linear-gradient(to bottom, #00000000, white);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-reverse {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.slide-c {
+  animation: 60s linear slide infinite;
+}
+
+.slide-c-reverse {
+  animation: 60s linear slide reverse infinite;
 }
