@@ -9,12 +9,8 @@ const Providers = ({
 }>) => {
   const toastOptions: ToastOptions = {
     duration: 4000,
-    // style: {
-    //   backgroundColor: "#27292f",
-    //   color: "white",
-    //   fontSize: "14px",
-    // },
-    position: "top-right",
+
+    position: "top-center",
     ariaProps: {
       "aria-live": "polite",
       role: "alert",
