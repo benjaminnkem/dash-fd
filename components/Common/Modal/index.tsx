@@ -47,7 +47,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose, isAutomatic = true }
           ></motion.div>
 
           {/* modal */}
-          <motion.div {...variant} className="md:max-w-lg mx-auto w-[90%] relative z-[300]">
+          <motion.div {...variant} className="md:max-w-[36rem] mx-auto w-[90%] relative z-[300]">
             <div ref={ref}>{children}</div>
           </motion.div>
         </div>

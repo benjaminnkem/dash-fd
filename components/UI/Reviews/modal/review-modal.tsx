@@ -19,6 +19,8 @@ const ReviewModal = () => {
     switch (step) {
       case 1:
         return <FirstSlide handleNext={handleNext} handlePrevious={handlePrevious} key={"init"} />;
+      // case 2:
+      //   return <FirstSlide handleNext={handleNext} handlePrevious={handlePrevious} key={"init"} />;
       default:
         return null;
     }

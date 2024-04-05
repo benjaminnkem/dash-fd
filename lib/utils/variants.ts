@@ -17,11 +17,11 @@ export const opacityVar = {
 export const fromBottom = {
   initial: { opacity: 0, y: "10%" },
   animate: { transition, opacity: 1, y: 0 },
-  exit: { opacity: 1, y: "10%" },
+  exit: { opacity: 0, y: "10%" },
 };
 
 export const fromTop = {
   initial: { opacity: 0, y: "-10%" },
   animate: { transition, opacity: 1, y: 0 },
-  exit: { opacity: 1, y: "-10%" },
+  exit: { opacity: 0, y: "-10%" },
 };
