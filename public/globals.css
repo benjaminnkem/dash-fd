@@ -3,14 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #000;
-  --background: #fff;
+  --foreground: #171717;
+  --background: #fafcfd;
+
+  /* RATE */
+  --start-color: #00000000;
+  --end-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: #fff;
-    --background: #000;
+    --foreground: #fafcfd;
+    --background: #171717;
+
+    /* RATE */
+    --end-color: #171717;
   }
 }
 
@@ -52,7 +59,7 @@ a {
   width: 100%;
   height: 200px;
   z-index: 2;
-  background: linear-gradient(to top, #00000000, white);
+  background: linear-gradient(to top, #00000000, var(--end-color));
 }
 #rating-cover::after {
   content: "";
@@ -62,7 +69,7 @@ a {
   width: 100%;
   height: 200px;
   z-index: 2;
-  background: linear-gradient(to bottom, #00000000, white);
+  background: linear-gradient(to bottom, #00000000, var(--end-color));
 }
 
 @keyframes slide {

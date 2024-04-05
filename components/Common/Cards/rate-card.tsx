@@ -34,7 +34,7 @@ const RateCard: FC<RateCardType> = ({
       case "network":
         return "border-[#ad307b] text-[#821958] bg-[#fbdbee]";
       case "security":
-        return "border-zinc-700 text-zinc-600 bg-zinc-300/40";
+        return "border-zinc-700 text-zinc-600 bg-zinc-300/40 dark:text-zinc-900";
       case "power":
         return "border-[#f56a57] text-black bg-[#f56a57]";
       case "traffic":
@@ -48,7 +48,7 @@ const RateCard: FC<RateCardType> = ({
   };
 
   return (
-    <div className="size-64 shadow-2xl duration-300 rounded-xl border border-gray-50 hover:border-gray-300 bg-white">
+    <div className="size-64 shadow-2xl duration-300 rounded-xl dark:border-transparent bg-white dark:bg-[#18181b]">
       <div className="flex flex-col justify-between h-full p-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-[6px]">
@@ -114,7 +114,9 @@ const RateCard: FC<RateCardType> = ({
             </div>
           </div>
 
-          <div className={`px-3 py-[2px] text-xs rounded-full border ${generateTagStyle()}`}>{tag}</div>
+          <div className={`px-3 py-[2px] dark:font-semibold text-xs rounded-full border ${generateTagStyle()}`}>
+            {tag}
+          </div>
         </div>
       </div>
     </div>
