@@ -15,10 +15,10 @@ const Hero = () => {
         className="h-screen container flex items-center -mt-8 mb-4"
       >
         <motion.div variants={parentVar} initial="initial" animate="animate" className="space-y-8 max-w-xl">
-          <motion.h1 variants={fromBottom} className="font-bold text-7xl">
+          <motion.h1 variants={fromBottom} className="font-bold xl:text-7xl lg:text-6xl text-5xl">
             Find a place you will love to live!
           </motion.h1>
-          <motion.p variants={fromBottom} className="text-xl text-zinc-800">
+          <motion.p variants={fromBottom} className="xl:text-xl lg:text-lg text-zinc-800">
             See through the lenses of people who have lived or visited the neighborhood you might have in mind.
           </motion.p>
 

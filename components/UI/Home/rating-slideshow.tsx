@@ -29,11 +29,12 @@ const RatingSlideshow = () => {
   return (
     <motion.div
       variants={opacityVar}
-      className="flex-grow h-full mt-8 overflow-hidden relative flex justify-end"
+      className="flex-grow min-w-[18rem] h-full mt-8 overflow-hidden relative sm:flex hidden justify-end"
       id="rating-cover"
     >
       <div className="flex gap-4 pr-8 -mr-8">
-        <div className="space-y-[15px]">
+        {/* up */}
+        <div className="space-y-[15px] xl:block hidden">
           <div className="space-y-4 slide-c">
             <div className="space-y-4">
               {dummyData.map((data, id) => (
@@ -50,6 +51,7 @@ const RatingSlideshow = () => {
           </div>
         </div>
 
+        {/* down */}
         <div className="space-y-[15px]">
           <div className="space-y-4 slide-c-reverse">
             <div className="space-y-4">
