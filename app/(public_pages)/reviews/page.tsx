@@ -5,11 +5,11 @@ import { dummyReviews } from "@/lib/data/reviews";
 const Page = () => {
   return (
     <main>
-      <div className="grid grid-cols-5 container gap-5">
-        <div className="col-span-3">
+      <div className="md:grid flex flex-col-reverse lg:grid-cols-5 md:grid-cols-4 container gap-8 py-10">
+        <div className="md:col-span-3">
           <Reviews reviews={dummyReviews} />
         </div>
-        <div className="col-span-2">
+        <div className="lg:col-span-2">
           <ImagePreview />
         </div>
       </div>

@@ -30,7 +30,7 @@ export const dummyReviews: Rating[] = [
     image: "/images/home/review_image.png",
     userRole: "admin",
   },
-  ...Array.from({ length: 8 }).map(() => ({
+  ...Array.from({ length: 3 }).map(() => ({
     comments: 125,
     date: "5 Months ago",
     location: "Ikate, Lekki",

@@ -41,15 +41,19 @@ const Navbar = () => {
           </div>
 
           {pathname.startsWith("/reviews") && (
-            <div className="border gap-3 text-[#484851] dark:text-[#999999] border-[#d4dcf1] dark:border-none w-full rounded-md flex items-center px-2 bg-white dark:bg-[#242428] overflow-hidden">
-              <Search size={16} className="text-primary" />
-              <input
-                type="text"
-                placeholder="Enter Location"
-                className="min-w-[40rem] py-2 bg-transparent flex-grow placeholder:text-zinc-400 dark:placeholder:text-[#999999]"
-                defaultValue={"Bonny and Clyde Street, Ajao Estate, Lagos"}
-              />
-            </div>
+            <>
+              <div className="border gap-3 text-[#484851] dark:text-[#999999] border-[#d4dcf1] dark:border-none w-full rounded-md sm:flex hidden items-center px-2 bg-white dark:bg-[#242428] overflow-hidden">
+                <Search size={16} className="text-primary" />
+                <input
+                  type="text"
+                  placeholder="Enter Location"
+                  className="lg:min-w-[40rem] md:min-w-[30rem] min-w-[10rem] py-2 bg-transparent flex-grow placeholder:text-zinc-400 dark:placeholder:text-[#999999]"
+                  defaultValue={"Bonny and Clyde Street, Ajao Estate, Lagos"}
+                />
+              </div>
+
+              <Search size={16} className="text-primary sm:hidden" />
+            </>
           )}
         </div>
 
