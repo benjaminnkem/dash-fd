@@ -1,4 +1,5 @@
-import RateCard, { RateCardType, RateTag } from "@/components/Common/Cards/rate-card";
+import RateCard from "@/components/Common/Cards/rate-card";
+import { Rating, RatingTag } from "@/lib/types/global";
 import { motion } from "framer-motion";
 
 const opacityVar = {
@@ -8,9 +9,9 @@ const opacityVar = {
 };
 
 const RatingSlideshow = () => {
-  const dummyTags: RateTag[] = ["network", "power", "water", "traffic", "security"];
+  const dummyTags: RatingTag[] = ["network", "power", "water", "traffic", "security"];
 
-  const generateRandomData = (): RateCardType => ({
+  const generateRandomData = (): Rating => ({
     comments: 125,
     date: "5 Months ago",
     location: "Ikate, Lekki",
@@ -24,7 +25,7 @@ const RatingSlideshow = () => {
     image: "/images/home/review_image.png",
   });
 
-  const dummyData: RateCardType[] = Array.from({ length: 10 }).map(generateRandomData);
+  const dummyData: Rating[] = Array.from({ length: 10 }).map(generateRandomData);
 
   return (
     <motion.div

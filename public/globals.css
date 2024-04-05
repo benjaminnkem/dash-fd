@@ -97,3 +97,7 @@ a {
 .slide-c-reverse {
   animation: 60s linear slide reverse infinite;
 }
+
+.hide_scroll::-webkit-scrollbar {
+  display: none;
+}
