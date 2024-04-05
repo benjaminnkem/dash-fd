@@ -1,13 +1,18 @@
 "use client";
 
 import Button from "@/components/Common/Buttons";
+import { useModal } from "@/lib/providers/modal-provider";
 import { Bookmark, ChevronLeft, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
+import ReviewModal from "./modal/review-modal";
 
 const ReviewNavPrev = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const pathname = usePathname();
+  const { showModal } = useModal();
+
+  const showReviewModal = () => showModal(<ReviewModal />);
 
   if (pathname.startsWith("/reviews"))
     return (
@@ -21,7 +26,7 @@ const ReviewNavPrev = () => {
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <Button text="LEAVE A REVIEW" variant="filled" className="rounded-md" />
+            <Button text="LEAVE A REVIEW" variant="filled" className="rounded-md" onClick={showReviewModal} />
             <div
               className={`px-3 py-2 rounded-lg grid place-content-center duration-200 border-[2.1px] border-primary/80 cursor-pointer ${
                 bookmarked ? "text-white bg-primary" : "text-primary"
@@ -45,7 +50,7 @@ const ReviewNavPrev = () => {
 
         {/* mobile */}
         <div className="flex items-center gap-4 md:hidden">
-          <Button text="LEAVE A REVIEW" variant="filled" className="rounded-md" />
+          <Button text="LEAVE A REVIEW" variant="filled" className="rounded-md" onClick={showReviewModal} />
           <div
             className={`px-3 py-2 rounded-lg grid place-content-center duration-200 border-[2.1px] border-primary/80 cursor-pointer ${
               bookmarked ? "text-white bg-primary" : "text-primary"

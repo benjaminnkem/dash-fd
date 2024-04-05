@@ -10,7 +10,7 @@ const ImagePreview = () => {
           <div
             key={id}
             className={`rounded-lg overflow-hidden relative lg:aspect-square lg:h-auto sm:min-h-[10rem] min-h-[8rem] group ${
-              id > 5 && "md:hidden"
+              id + 1 > 4 && "md:hidden"
             } ${id + 1 === 1 && "col-span-2 row-span-2 md:row-span-1 md:col-span-1"}`}
           >
             <Image
