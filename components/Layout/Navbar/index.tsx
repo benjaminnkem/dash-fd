@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className={`${pathname.startsWith("/reviews") ? "bg-[#f2f6fd]" : ""} duration-200`}>
       <div className="flex items-center justify-between container py-4">
         <div className="flex items-center gap-4">
-          <div>
+          <div className="flex-shrink-0">
             <Link href={"/"}>
               {!darkMode ? (
                 <Image src={"/images/global/ic_logo.svg"} alt="logo" width={100} height={50} />

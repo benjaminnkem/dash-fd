@@ -1,23 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
-import classNames from "classnames";
+import { Rating } from "@/lib/types/global";
 
-export type RateTag = "network" | "power" | "water" | "traffic" | "security";
-
-export type RateCardType = {
-  username: string;
-  date: string;
-  location: string;
-  rate: number;
-  image: string;
-  description: string;
-  likes: number;
-  dislikes: number;
-  comments: number;
-  tag: RateTag; // more can be added or set to a string instead
-};
-
-const RateCard: FC<RateCardType> = ({
+const RateCard: FC<Rating> = ({
   description,
   comments,
   date,

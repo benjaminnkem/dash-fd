@@ -10,5 +10,6 @@ export type Rating = {
   likes: number;
   dislikes: number;
   comments: number;
-  tag: RatingTag; // more can be added or set to a string instead
+  tag?: RatingTag; // more can be added or set to a string instead
+  userRole?: "admin" | "user";
 };
