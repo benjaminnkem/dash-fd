@@ -1,4 +1,11 @@
 import RateCard, { RateCardType, RateTag } from "@/components/Common/Cards/rate-card";
+import { motion } from "framer-motion";
+
+const opacityVar = {
+  initial: { opacity: 0 },
+  animate: { transition: { duration: 0.5, delay: 0.4 }, opacity: 1 },
+  exit: { opacity: 1 },
+};
 
 const RatingSlideshow = () => {
   const dummyTags: RateTag[] = ["network", "power", "water", "traffic", "security"];
@@ -20,7 +27,11 @@ const RatingSlideshow = () => {
   const dummyData: RateCardType[] = Array.from({ length: 10 }).map(generateRandomData);
 
   return (
-    <div className="flex-grow h-full mt-8 overflow-hidden relative flex justify-end" id="rating-cover">
+    <motion.div
+      variants={opacityVar}
+      className="flex-grow h-full mt-8 overflow-hidden relative flex justify-end"
+      id="rating-cover"
+    >
       <div className="flex gap-4 pr-8 -mr-8">
         <div className="space-y-[15px]">
           <div className="space-y-4 slide-c">
@@ -56,7 +67,7 @@ const RatingSlideshow = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

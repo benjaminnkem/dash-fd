@@ -1,18 +1,28 @@
+"use client";
 import Button from "@/components/Common/Buttons";
 import { Search } from "lucide-react";
 import RatingSlideshow from "./rating-slideshow";
+import { motion } from "framer-motion";
+import { fromBottom, parentVar } from "@/lib/utils/variants";
 
 const Hero = () => {
   return (
     <header>
-      <div className="h-screen container flex items-center -mt-8 mb-4">
-        <div className="space-y-8 max-w-xl">
-          <h1 className="font-bold text-7xl">Find a place you will love to live!</h1>
-          <p className="text-xl text-zinc-800">
-            See through the lenses of people who have lived or visited the neighbourhood you might have in mind.
-          </p>
+      <motion.div
+        {...parentVar}
+        initial="initial"
+        animate="animate"
+        className="h-screen container flex items-center -mt-8 mb-4"
+      >
+        <motion.div variants={parentVar} initial="initial" animate="animate" className="space-y-8 max-w-xl">
+          <motion.h1 variants={fromBottom} className="font-bold text-7xl">
+            Find a place you will love to live!
+          </motion.h1>
+          <motion.p variants={fromBottom} className="text-xl text-zinc-800">
+            See through the lenses of people who have lived or visited the neighborhood you might have in mind.
+          </motion.p>
 
-          <div className="space-y-2">
+          <motion.div variants={fromBottom} className="space-y-2">
             <div className="border gap-3 text-[#484851] border-[#d4dcf1] w-full rounded-md flex items-center px-3 bg-[#f3f7fe] overflow-hidden">
               <Search size={18} />
               <input
@@ -22,10 +32,11 @@ const Hero = () => {
               />
             </div>
             <Button text="SEARCH" variant="filled" rounded="lg" className="rounded-sm" />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
         <RatingSlideshow />
-      </div>
+      </motion.div>
     </header>
   );
 };
