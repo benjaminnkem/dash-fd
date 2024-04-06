@@ -39,7 +39,7 @@ const Button: FC<Props> = (props) => {
       mainClass += "bg-primary text-white hover:bg-primary/80 ";
       break;
     case "outline":
-      mainClass += "bg-transparent border border-zinc-500/50 hover:border-primary text-primary ";
+      mainClass += "bg-transparent border border-primary/50 hover:border-primary text-primary ";
       break;
     case "black":
       mainClass += "hover:bg-white/80 bg-white text-primary ";

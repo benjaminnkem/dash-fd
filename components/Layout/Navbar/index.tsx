@@ -1,6 +1,6 @@
 "use client";
 
-import ReviewNavPrev from "@/components/UI/Reviews/nav-preview";
+import ReviewNavPrev from "@/components/UI/Reviews/main/nav-preview";
 import useStore from "@/lib/store/global.store";
 import { Search } from "lucide-react";
 import Image from "next/image";

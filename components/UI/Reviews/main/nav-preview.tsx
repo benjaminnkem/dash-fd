@@ -5,7 +5,7 @@ import { useModal } from "@/lib/providers/modal-provider";
 import { Bookmark, ChevronLeft, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
-import ReviewModal from "./modal/review-modal";
+import ReviewModal from "../modal/review-modal";
 
 const ReviewNavPrev = () => {
   const [bookmarked, setBookmarked] = useState(false);
