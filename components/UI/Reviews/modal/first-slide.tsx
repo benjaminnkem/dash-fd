@@ -7,33 +7,8 @@ import Button from "@/components/Common/Buttons";
 import { useModal } from "@/lib/providers/modal-provider";
 import toast from "react-hot-toast";
 import CustomToast from "@/components/Common/Toast/custom";
-
-const amenitiesExample = [
-  "Parking Lot",
-  "Free Wifi",
-  "Parking Lot",
-  "Free Wifi",
-  "Parking Lot",
-  "Nightlife",
-  "Pet Store",
-  "Nightlife",
-  "Pet Store",
-  "Hospitals",
-  "Childcare",
-  "Hospitals",
-  "Childcare",
-  "Hospitals",
-  "Adult Home",
-  "Gym",
-  "Adult Home",
-  "Gym",
-  "Adult Home",
-  "Schools",
-  "Security",
-  "Schools",
-  "Security",
-  "Schools",
-];
+import { amenitiesExample } from "@/lib/data/others";
+import { Amenity } from "@/lib/types/global";
 
 const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
   const [showAmenities, setShowAmenities] = useState(false);
@@ -41,11 +16,16 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
   const [isAnonymous, setIsAnonymous] = useState(false);
 
   const [text, setText] = useState("");
+  const [amenities, setAmenities] = useState<number[]>([]);
+
+  const addAmenity = (amenityId: number) =>
+    setAmenities((prev) => (prev.includes(amenityId) ? prev : [...prev, amenityId]));
+
+  const removeAmenity = (amenityId: number) => setAmenities((prev) => prev.filter((num) => num !== amenityId));
 
   const { hideModal } = useModal();
 
   const setStars = (amount: number) => setRateSelected(amount);
-
   const toggleShowAmenities = () => setShowAmenities((prev) => !prev);
 
   const finish = () => {
@@ -68,7 +48,14 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
               className="p-3 flex items-center justify-between cursor-pointer w-full bg-[#f3f7fe] dark:bg-[#242428]"
               onClick={toggleShowAmenities}
             >
-              <p>Select Amenities</p>
+              <p className="capitalize truncate">
+                {!amenities || amenities.length === 0
+                  ? "Select Amenities"
+                  : `${amenities
+                      .map((amenity) => amenitiesExample[amenity - 1].amenity)
+                      .sort()
+                      .join(", ")}`}
+              </p>
               <ChevronDown className={`text-zinc-500 duration-300 ${showAmenities && "rotate-180"}`} />
             </div>
 
@@ -79,7 +66,13 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
                   className="p-4 bg-[#f3f7fe] dark:bg-[#242428] z-10 max-h-[15rem] overflow-y-auto absolute top-full w-full left-0 rounded-b-md dark:rounded-md border border-zinc-200 dark:border-zinc-500 shadow-xl grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 text-sm gap-4"
                 >
                   {amenitiesExample.map((amenity, id) => (
-                    <Amenity amenity={amenity} key={id} />
+                    <AmenityComp
+                      {...amenity}
+                      addAmenity={addAmenity}
+                      removeAmenity={removeAmenity}
+                      amenities={amenities}
+                      key={id}
+                    />
                   ))}
                 </motion.div>
               )}
@@ -160,11 +153,24 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
   );
 };
 
-const Amenity = ({ amenity }: { amenity: string }) => {
-  const [checked, setChecked] = useState(false);
+const AmenityComp: FC<
+  Amenity & { amenities: number[]; addAmenity: (amenityId: number) => void; removeAmenity: (amenityId: number) => void }
+> = ({ amenity, id, addAmenity, amenities, removeAmenity }) => {
+  // to enable check
+  const [checked, setChecked] = useState(amenities.includes(id));
+
+  const clickCheck = () => {
+    if (checked) {
+      setChecked(false);
+      removeAmenity(id);
+      return;
+    }
+    setChecked(true);
+    addAmenity(id);
+  };
 
   return (
-    <div className="flex items-center gap-3 cursor-pointer" onClick={() => setChecked((prev) => !prev)}>
+    <div className="flex items-center gap-3 cursor-pointer" onClick={clickCheck}>
       <div
         className={`size-5 grid place-content-center border-zinc-400 select-none duration-300 rounded-md border cursor-pointer ${
           checked && "bg-primary border-primary dark:text-white"

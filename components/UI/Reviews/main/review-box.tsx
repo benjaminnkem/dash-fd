@@ -5,9 +5,9 @@ import CustomToast from "@/components/Common/Toast/custom";
 import useStore from "@/lib/store/global.store";
 import Image from "next/image";
 import { FC, useState } from "react";
-import { Rating } from "@/lib/types/global";
+import { ReviewType } from "@/lib/types/global";
 
-const Review: FC<Rating> = ({ comments, date, description, dislikes, image, likes, rate, username, userRole }) => {
+const Review: FC<ReviewType> = ({ comments, date, description, dislikes, image, likes, rate, username, userRole }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState("");
 

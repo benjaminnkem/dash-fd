@@ -1,8 +1,8 @@
-import { Rating, RatingTag } from "@/lib/types/global";
+import { ReviewType, ReviewTag } from "@/lib/types/global";
 
-export const dummyTags: RatingTag[] = ["network", "power", "water", "traffic", "security"];
+export const dummyTags: ReviewTag[] = ["network", "power", "water", "traffic", "security"];
 
-export const dummyReviews: Rating[] = [
+export const dummyReviews: ReviewType[] = [
   {
     comments: 125,
     date: "5 Months ago",

@@ -1,6 +1,6 @@
-export type RatingTag = "network" | "power" | "water" | "traffic" | "security";
+export type ReviewTag = "network" | "power" | "water" | "traffic" | "security";
 
-export type Rating = {
+export type ReviewType = {
   username: string;
   date: string;
   location: string;
@@ -10,6 +10,8 @@ export type Rating = {
   likes: number;
   dislikes: number;
   comments: number;
-  tag?: RatingTag; // more can be added or set to a string instead
+  tag?: ReviewTag; // more can be added or set to a string instead
   userRole?: "admin" | "user";
 };
+
+export type Amenity = { id: number; amenity: string };

@@ -1,0 +1,28 @@
+import { Amenity } from "../types/global";
+
+export const amenitiesExample: Amenity[] = [
+  "Parking Lot",
+  "Free Wifi",
+  "Parking Lot",
+  "Free Wifi",
+  "Parking Lot",
+  "Nightlife",
+  "Pet Store",
+  "Nightlife",
+  "Pet Store",
+  "Hospitals",
+  "Childcare",
+  "Hospitals",
+  "Childcare",
+  "Hospitals",
+  "Adult Home",
+  "Gym",
+  "Adult Home",
+  "Gym",
+  "Adult Home",
+  "Schools",
+  "Security",
+  "Schools",
+  "Security",
+  "Schools",
+].map((amenity, id) => ({ id: id + 1, amenity }));

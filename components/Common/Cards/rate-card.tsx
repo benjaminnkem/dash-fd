@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
-import { Rating } from "@/lib/types/global";
+import { ReviewType } from "@/lib/types/global";
 
-const RateCard: FC<Rating> = ({
+const RateCard: FC<ReviewType> = ({
   description,
   comments,
   date,

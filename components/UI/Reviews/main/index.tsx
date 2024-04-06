@@ -1,12 +1,13 @@
 "use client";
-import { Rating } from "@/lib/types/global";
+import { ReviewType } from "@/lib/types/global";
 import { FC, useMemo } from "react";
 import Review from "./review-box";
+import useStore from "@/lib/store/global.store";
 
-type Props = { reviews: Rating[] };
+type Props = { reviews: ReviewType[] };
 
 const Reviews: FC<Props> = ({ reviews: mainReviews }) => {
-  const reviews = useMemo(() => mainReviews, [mainReviews]);
+  const { reviews } = useStore();
 
   return (
     <div className="divide-y divide-zinc-300 dark:divide-zinc-500">
