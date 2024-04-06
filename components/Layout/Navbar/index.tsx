@@ -1,38 +1,24 @@
 "use client";
 
 import ReviewNavPrev from "@/components/UI/Reviews/nav-preview";
+import useStore from "@/lib/store/global.store";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setDarkMode(darkModeMediaQuery.matches);
-
-    const darkModeListener = (event: MediaQueryListEvent) => {
-      setDarkMode(event.matches);
-    };
-
-    darkModeMediaQuery.addEventListener("change", darkModeListener);
-
-    return () => {
-      darkModeMediaQuery.removeEventListener("change", darkModeListener);
-    };
-  }, []);
+  const { isDarkMode } = useStore();
 
   return (
-    <nav className={`${pathname.startsWith("/reviews") ? "bg-[#f2f6fd]" : ""} duration-200`}>
+    <nav className={`${pathname.startsWith("/reviews") ? "bg-[#f2f6fd] dark:bg-darkColor" : ""} duration-200`}>
       <div className="flex items-center justify-between container py-4">
         <div className="flex items-center gap-4">
           <div className="flex-shrink-0">
             <Link href={"/"}>
-              {!darkMode ? (
+              {!isDarkMode ? (
                 <Image src={"/images/global/ic_logo.svg"} alt="logo" width={100} height={50} />
               ) : (
                 <Image src={"/images/global/ic_logo_dark.svg"} alt="logo" width={100} height={50} />

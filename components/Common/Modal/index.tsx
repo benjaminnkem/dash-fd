@@ -42,7 +42,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose, isAutomatic = true }
           {/* background */}
           <motion.div
             {...opacityVar}
-            className="fixed top-0 left-0 min-w-full min-h-full bg-[#213449]/95 backdrop-blur flex items-center justify-center"
+            className="fixed top-0 left-0 min-w-full min-h-full bg-[#213449]/95 dark:bg-[#1e1e1e]/70 backdrop-blur flex items-center justify-center"
             onClick={isAutomatic ? onClose : () => {}}
           ></motion.div>
 

@@ -54,14 +54,18 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
   };
 
   return (
-    <motion.div {...opacityVar} key={"modal-init"} className="mx-auto bg-white rounded-md shadow-md p-5 space-y-4">
+    <motion.div
+      {...opacityVar}
+      key={"modal-init"}
+      className="mx-auto bg-white dark:bg-darkColor duration-200 rounded-md shadow-md p-5 space-y-4"
+    >
       <p className="font-medium text-lg text-center">Review Location</p>
       <div className="space-y-5">
         <div className="space-y-3 select-none">
           <p className="font-semibold text-xl">Bonny and Clyde Street, Ajao Estate, Lagos</p>
           <div className="relative">
             <div
-              className="p-3 flex items-center justify-between cursor-pointer w-full bg-[#f3f7fe]"
+              className="p-3 flex items-center justify-between cursor-pointer w-full bg-[#f3f7fe] dark:bg-[#242428]"
               onClick={toggleShowAmenities}
             >
               <p>Select Amenities</p>
@@ -72,7 +76,7 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
               {showAmenities && (
                 <motion.div
                   {...fromTop}
-                  className="p-4 bg-[#f3f7fe] z-10 max-h-[15rem] overflow-y-auto absolute top-full w-full left-0 rounded-b-md border border-zinc-200 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 text-sm gap-4"
+                  className="p-4 bg-[#f3f7fe] dark:bg-[#242428] z-10 max-h-[15rem] overflow-y-auto absolute top-full w-full left-0 rounded-b-md dark:rounded-md border border-zinc-200 dark:border-zinc-500 shadow-xl grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 text-sm gap-4"
                 >
                   {amenitiesExample.map((amenity, id) => (
                     <Amenity amenity={amenity} key={id} />
@@ -138,8 +142,8 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
         <div className="flex items-center gap-3">
           <div
             className={`size-5 grid place-content-center border-zinc-400 select-none duration-300 rounded-md border cursor-pointer ${
-              isAnonymous && "bg-primary border-primary"
-            } text-white`}
+              isAnonymous && "bg-primary border-primary dark:text-white"
+            } text-white dark:text-[#242428]`}
             onClick={() => setIsAnonymous((prev) => !prev)}
           >
             <Check size={12} />
@@ -163,8 +167,8 @@ const Amenity = ({ amenity }: { amenity: string }) => {
     <div className="flex items-center gap-3 cursor-pointer" onClick={() => setChecked((prev) => !prev)}>
       <div
         className={`size-5 grid place-content-center border-zinc-400 select-none duration-300 rounded-md border cursor-pointer ${
-          checked && "bg-primary border-primary"
-        } text-white`}
+          checked && "bg-primary border-primary dark:text-white"
+        } text-white dark:text-[#242428]`}
       >
         <Check size={12} />
       </div>

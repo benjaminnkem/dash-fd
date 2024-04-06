@@ -3,15 +3,16 @@ import { Rating } from "@/lib/types/global";
 import Image from "next/image";
 import { FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { fromRight, heightOpenVariant } from "@/lib/utils/variants";
+import { heightOpenVariant } from "@/lib/utils/variants";
 import toast from "react-hot-toast";
 import CustomToast from "@/components/Common/Toast/custom";
+import useStore from "@/lib/store/global.store";
 
 type Props = { reviews: Rating[] };
 
 const Reviews: FC<Props> = ({ reviews }) => {
   return (
-    <div className="divide-y divide-zinc-300">
+    <div className="divide-y divide-zinc-300 dark:divide-zinc-500">
       {reviews.map((review, id) => (
         <Review {...review} key={id} />
       ))}
@@ -24,6 +25,8 @@ const Review: FC<Rating> = ({ comments, date, description, dislikes, image, like
   const [comment, setComment] = useState("");
 
   const [numOfComments, setNumOfComments] = useState(comments);
+
+  const { isDarkMode } = useStore();
 
   const addComment = () => {
     toast.custom(<CustomToast message={`Comment: "${comment}" added.`} />, { id: "comment-added" });
@@ -74,21 +77,36 @@ const Review: FC<Rating> = ({ comments, date, description, dislikes, image, like
           <p>{description}</p>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-8 text-[#0d2159]">
+            <div className="flex items-center gap-8 text-[#0d2159] dark:text-[#bacaf5]">
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-[2px]">
-                  <Image src={"/svgs/like_outline.svg"} alt="like icon" width={16} height={10} />
+                  <Image
+                    src={isDarkMode ? "/svgs/dark/like_dark.svg" : "/svgs/like_outline.svg"}
+                    alt="like icon"
+                    width={16}
+                    height={10}
+                  />
                   <p>{likes}</p>
                 </div>
 
                 <div className="flex items-center gap-[2px]">
-                  <Image src={"/svgs/dislike_outline.svg"} alt="like icon" width={16} height={10} />
+                  <Image
+                    src={isDarkMode ? "/svgs/dark/dislike_dark.svg" : "/svgs/dislike_outline.svg"}
+                    alt="like icon"
+                    width={16}
+                    height={10}
+                  />
                   <p>{dislikes}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-[2px] cursor-pointer" onClick={toggleCommentBox}>
-                <Image src={"/svgs/comment_outline.svg"} alt="like icon" width={16} height={16} />
+                <Image
+                  src={isDarkMode ? "/svgs/dark/comment_dark.svg" : "/svgs/comment_outline.svg"}
+                  alt="like icon"
+                  width={16}
+                  height={16}
+                />
                 <p>{numOfComments}</p>
               </div>
             </div>

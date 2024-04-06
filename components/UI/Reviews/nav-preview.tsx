@@ -107,7 +107,10 @@ const Categories = () => {
       <ChevronLeft className="absolute sm:top-[15%] top-[10%] -left-6 cursor-pointer" size={27} onClick={scrollLeft} />
       <div className="flex items-center overflow-x-auto gap-5 hide_scroll scroll-smooth" ref={ref}>
         {categories.map((category, id) => (
-          <div key={id} className="px-2 py-1 border flex-shrink-0 rounded-md bg-white text-sm md:text-base">
+          <div
+            key={id}
+            className="px-2 py-1 border flex-shrink-0 rounded-md bg-white dark:bg-[#242428] dark:border-zinc-300 text-sm md:text-base"
+          >
             <p>{category}</p>
           </div>
         ))}
