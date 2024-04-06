@@ -92,7 +92,7 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
               {showAmenities && (
                 <motion.div
                   {...fromTop}
-                  className="p-4 bg-[#f3f7fe] absolute top-full w-full left-0 rounded-b-md border border-zinc-200 grid grid-cols-4 text-sm gap-4"
+                  className="p-4 bg-[#f3f7fe] z-10 max-h-[15rem] overflow-y-auto absolute top-full w-full left-0 rounded-b-md border border-zinc-200 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 text-sm gap-4"
                 >
                   {amenitiesExample.map((amenity, id) => (
                     <Amenity amenity={amenity} key={id} />
