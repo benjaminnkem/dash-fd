@@ -25,3 +25,21 @@ export const fromTop = {
   animate: { transition, opacity: 1, y: 0 },
   exit: { opacity: 0, y: "-10%" },
 };
+
+export const fromRight = {
+  initial: { opacity: 0, x: "10%" },
+  animate: { transition, opacity: 1, x: 0 },
+  exit: { opacity: 0, x: "10%" },
+};
+
+export const fromLeft = {
+  initial: { opacity: 0, x: "-10%" },
+  animate: { transition, opacity: 1, x: 0 },
+  exit: { opacity: 0, x: "-10%" },
+};
+
+export const heightOpenVariant = {
+  initial: { opacity: 0, height: "0px" },
+  animate: { opacity: 1, height: "auto" },
+  exit: { opacity: 0, height: "0px" },
+};
