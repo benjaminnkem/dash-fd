@@ -126,7 +126,7 @@ const FirstSlide: FC<SlideProps> = ({ handleNext }) => {
           <textarea
             rows={5}
             placeholder="Write message..."
-            className="w-full bg-transparent rounded-md resize-none border p-4"
+            className="w-full bg-transparent rounded-md resize-none border dark:border-zinc-500 p-4"
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
