@@ -12,12 +12,12 @@
 
 - Infinite Scroll Animation for review Cards (Home Page)
 - Dark Mode (Based on user's device preference)
-- Responsive
+- Responsiveness
 - No Reviews and Reviews page (UI) - can be toggled as well for testing purposes
 - Create/Add Comments
 - Location Bookmark toggling - When bookmark icon is clicked
 - Create a review process with validation and custom dropdown (Responsive as well)
-- Satisfying Notification toast with adjustable lifetime duration.
+- Custom Notification toast with adjustable lifetime duration.
 
 ## Installation
 
