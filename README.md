@@ -10,7 +10,7 @@
 
 ## Features
 
-- Infinite Move Animation for review Cards (Home Page)
+- Infinite Scroll Animation for review Cards (Home Page)
 - Dark Mode (Based on user's device preference)
 - Responsive
 - No Reviews and Reviews page (UI) - can be toggled as well for testing purposes
